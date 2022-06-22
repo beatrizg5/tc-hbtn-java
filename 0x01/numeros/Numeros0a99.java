@@ -1,10 +1,9 @@
-public class Numeros0a99 {
+public class teste {
     public static void main(String[] args) {
-        for(int i = 0; i<=99; i++){
-            if( i>0 && i <100) {
-                System.out.print(" ");
-            }
-            System.out.printf("%d%c",i, i==99 ? 0 : 44);
+        for (int i = 0; i <= 99; i++) {
+
+            System.out.printf("%d%c ", i, i == 99 ? 0 : 44);
         }
+        System.out.println();
     }
 }
