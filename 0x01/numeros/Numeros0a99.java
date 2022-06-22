@@ -4,7 +4,7 @@ public class Numeros0a99 {
             if(i>0){
                 System.out.print(", ");
             }
-            System.out.printf("%d ",i, i==99 ? 0 : 44);
+            System.out.printf("%d",i, i==99 ? 0 : 44);
 
         }
     }
