@@ -1,8 +1,13 @@
 public class NumerosPares {
-    public static void main(String[] args) {
-        for (int i = 0; i <= 49; i++) {
-            //System.out.print(i*2 + ", " );
-            System.out.printf("%d%c ",i*2, i==49 ? 0: 44);
+    public static void main(String args[]) {
+        int valor;
+        for (int i = 0; i < 100; i++) {
+            if (i % 2 == 0) {
+                if(i>0){
+                System.out.printf(", ");
+                    }
+                System.out.print(i);
+            }
         }
     }
 }
