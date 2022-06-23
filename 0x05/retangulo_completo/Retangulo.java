@@ -5,7 +5,7 @@ public class Retangulo extends FormaGeometrica {
     }
 
     public String toString() {
-        return String.format("[Retangulo] " + largura + " / " + altura);
+        return String.format("[Retangulo] " + largura+0 + " / " + altura+0);
     }
 
     private double largura;
