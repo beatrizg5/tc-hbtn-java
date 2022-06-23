@@ -1,5 +1,13 @@
-public class Retangulo extends FormaGeometrica{
-public class Retangulo extends FormaGeometrica{
+public class Retangulo extends FormaGeometrica {
+    @Override
+    public double area() {
+        return altura * largura;
+    }
+
+    public String toString() {
+        return String.format("[Retangulo] " + largura + " / " + altura);
+    }
+
     private double largura;
     private double altura;
 
@@ -8,7 +16,7 @@ public class Retangulo extends FormaGeometrica{
     }
 
     public void setLargura(double largura) {
-        if(largura<0){
+        if (largura < 0) {
             throw new IllegalArgumentException("Largura deve ser maior ou igual a 0");
         }
         this.largura = largura;
@@ -19,7 +27,7 @@ public class Retangulo extends FormaGeometrica{
     }
 
     public void setAltura(double altura) {
-        if(altura<0){
+        if (altura < 0) {
             throw new IllegalArgumentException("Altura deve ser maior ou igual a 0");
         }
         this.altura = altura;
