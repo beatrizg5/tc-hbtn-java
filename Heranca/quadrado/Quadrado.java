@@ -5,18 +5,17 @@ public class Quadrado extends Retangulo {
         return lado;
     }
 
-    public String setLado(double lado) {
-
+    public void setLado(double lado) {
         if (lado < 0) {
             throw new IllegalArgumentException("Lado deve ser maior ou igual a 0");
         } else {
-            this.lado = lado;
-
+            this.altura = lado;
+            this.largura=lado;
+            this.lado=lado;
         }
-        return null;
     }
 
     public String toString() {
-        return String.format("[Quadrado] " + lado+0);
+        return String.format("[Quadrado] " + lado + 0);
     }
 }
