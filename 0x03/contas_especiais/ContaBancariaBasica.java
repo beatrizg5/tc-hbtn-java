@@ -14,6 +14,10 @@ public class ContaBancariaBasica {
         return saldo;
     }
 
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
     public double getTaxaJurosAnual() {
         return taxaJurosAnual;
     }
@@ -25,19 +29,19 @@ public class ContaBancariaBasica {
     }
 
     void depositar(double valor) throws OperacaoInvalidaException {
-        if (valor <= 0) {
+        if (valor < 0) {
             throw new OperacaoInvalidaException("Valor para deposito deve ser maior que 0");
 
         } else {
-            saldo += valor;
+            this.saldo += valor;
         }
 
     }
 
     void sacar(double valor) throws OperacaoInvalidaException {
         if (valor > 0) {
-            if (valor <= saldo) {
-                saldo -= valor;
+            if (valor <= this.saldo) {
+                this.saldo -= valor;
             } else {
                 throw new OperacaoInvalidaException("Valor de saque deve ser menor que o saldo atual");
             }
@@ -48,15 +52,18 @@ public class ContaBancariaBasica {
 
 
     double calcularTarifaMensal() {
-        if (saldo * 0.10 < 10) {
-            return saldo * 0.10;
+        double tarifa = 0;
+        tarifa = this.saldo * 0.10;
+        if (tarifa < 10) {
+            return tarifa;
+        } else {
+            return 10;
         }
-        return 10;
 
     }
 
     double calcularJurosMensal() {
-        if (saldo < 0) {
+        if (this.saldo < 0) {
 
             return 0;
         } else {
@@ -65,9 +72,9 @@ public class ContaBancariaBasica {
     }
 
     void aplicarAtualizacaoMensal() {
-        double juros = calcularJurosMensal() * saldo;
-        saldo -= calcularTarifaMensal();
-        saldo += juros;
+        double juros = calcularJurosMensal() * this.saldo;
+        this.saldo -= calcularTarifaMensal();
+        this.saldo += juros;
 
     }
 }

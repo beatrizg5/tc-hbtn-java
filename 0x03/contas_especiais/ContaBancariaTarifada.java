@@ -1,8 +1,9 @@
 import exceptions.OperacaoInvalidaException;
 
-public class ContaBancariaTarifada extends ContaBancariaBasica{
+public class ContaBancariaTarifada extends ContaBancariaBasica {
     private int quantidadeTransacoes;
-    double saldo=getSaldo();
+
+
 
     public int getQuantidadeTransacoes() {
         return quantidadeTransacoes;
@@ -13,27 +14,23 @@ public class ContaBancariaTarifada extends ContaBancariaBasica{
     }
 
     @Override
-    void depositar(double valor) throws OperacaoInvalidaException {
-        if (valor <= 0) {
-            throw new OperacaoInvalidaException("Valor para deposito deve ser maior que 0");
+    void depositar(double valor) {
+        double taxa = 0.10;
+        double saldo = getSaldo();
+        saldo = saldo + valor - taxa;
+        super.setSaldo(saldo);
+        this.quantidadeTransacoes++;
 
-        } else {
-            double saldo = valor;
-        }
 
     }
+
     @Override
-    void sacar(double valor) throws OperacaoInvalidaException {
-        if (valor > 0) {
-
-            if (valor <= saldo) {
-                saldo -= valor;
-            } else {
-                throw new OperacaoInvalidaException("Valor de saque deve ser menor que o saldo atual");
-            }
-        } else {
-            throw new OperacaoInvalidaException("Valor de saque deve ser maior que 0");
-        }
+    void sacar(double valor) {
+        double taxa = 0.10;
+        double saldo = getSaldo();
+        saldo = saldo -valor - taxa;
+        super.setSaldo(saldo);
+        this.quantidadeTransacoes++;
     }
-
 }
+
