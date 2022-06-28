@@ -46,7 +46,14 @@ public class Pedido {
     }
 
     public double getPercentualDesconto() {
-        return percentualDesconto;
+        double desconto = 0;
+        for (ItemPedido item : itens) {
+            desconto = desconto + (item.getQuatidade() * item.getProduto().obterPrecoLiquido());
+
+        }
+
+        return desconto = desconto * this.percentualDesconto / 100;
+
     }
 
     public void setPercentualDesconto(double percentualDesconto) {
