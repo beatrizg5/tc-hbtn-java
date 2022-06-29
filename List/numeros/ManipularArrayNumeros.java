@@ -2,42 +2,42 @@ import java.util.List;
 
 public class ManipularArrayNumeros {
 
-    //Esse método deve retornar a posicao do número na lista, se número não for encontrado retorna -1
-    public static void buscarPosicaoNumero(List<Integer> numeros, int i) {
-
+    public static int buscarPosicaoNumero(List<Integer> lista, int numero) {
+        return lista.indexOf(numero);
     }
 
-
-    //Esse método verifica se o número já existe na lista, se sim, lança uma exceção com a mensagem
-    // Numero jah contido na lista, se não, adiciona o item na lista, utilize o método buscarPosicaoNumero
-    public static void adicionarNumero(List<Integer> numeros, int i) {
-        if (numeros.contains(i)) {
-            throw new RuntimeException("Numero jah contido na lista");
+    public static void adicionarNumero(List<Integer> lista, int numero) {
+        int aux = buscarPosicaoNumero(lista, numero);
+        if (aux < 0) {
+            lista.add(numero);
 
         } else {
-            numeros.add(i);
+            throw new IllegalArgumentException("Numero jah contido na lista");
         }
 
     }
 
-    //Se o número não for encontrado na lista deve-se lançar uma exceção com a mensagem Numero nao encontrado
-    // na lista, utilize o método buscarPosicaoNumero.
-    public static void removerNumero(List<Integer> numeros, int i) {
-        if (numeros.contains(i)) {
-            numeros.remove(i);
-        } /*else {
-            throw new RuntimeException("Numero nao encontrado na lista");
-        }*/
+    public static void removerNumero(List<Integer> lista, int numero) {
+        int aux = buscarPosicaoNumero(lista, numero);
+        if (aux != -1) {
+            lista.remove(Integer.valueOf(numero));
+
+        } else {
+            throw new IllegalArgumentException("Numero nao encontrado na lista");
+        }
+
     }
 
-    //deve buscar o produto e substituí-lo. Caso o número a ser substituído não exista, apenas adicione
-    // o número substituto.
-    public static void substituirNumero(List<Integer> numeros, int numeroSubstituir, int numeroSubstituto) {
-        if (numeros.contains(numeroSubstituir)) {
-            //numeros.set(numeroSubstituir, numeroSubstituto);
-        }else{
-            numeros.add(numeroSubstituto);
+
+    public static void substituirNumero(List<Integer> lista, int numeroSubstituir, int numeroSubstituto) {
+        int aux = buscarPosicaoNumero(lista, numeroSubstituir);
+        if (aux < 0) {
+            lista.add(numeroSubstituto);
+
+        } else {
+            lista.set(aux, numeroSubstituto);
         }
+
     }
 }
 
