@@ -17,15 +17,15 @@ public class Program {
 
         System.out.println(String.format("Total: %d - Removidos: %d", pedido.obterTotalCaixas(), quantidadeRemovidos));
 
-        pedido.removerSabor("Chocolate");
+        quantidadeRemovidos = pedido.removerSabor("Chocolate");
 
         System.out.println(String.format("Total: %d - Removidos: %d", pedido.obterTotalCaixas(), quantidadeRemovidos));
 
-        pedido.removerSabor("Baunilha");
+        quantidadeRemovidos = pedido.removerSabor("Baunilha");
 
         System.out.println(String.format("Total: %d - Removidos: %d", pedido.obterTotalCaixas(), quantidadeRemovidos));
 
-        pedido.removerSabor("Chocolate");
+        quantidadeRemovidos = pedido.removerSabor("Chocolate");
 
         System.out.println(String.format("Total: %d - Removidos: %d", pedido.obterTotalCaixas(), quantidadeRemovidos));
 
