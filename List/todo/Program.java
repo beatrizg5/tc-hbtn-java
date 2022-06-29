@@ -39,7 +39,7 @@ public class Program {
         System.out.println(resultado);
         System.out.println("----");
 
-        todo.desfazerTarefa(5);
+        resultado = todo.desfazerTarefa(5);
         System.out.println(resultado);
         System.out.println("----");
 
