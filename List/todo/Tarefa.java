@@ -9,6 +9,9 @@ public class Tarefa {
     }
 
     public void modificarDescricao(){
+        if(getDescricao().isEmpty()||getDescricao().isBlank()){
+            throw new IllegalArgumentException("Descricao de tarefa invalida");
+        }
 
     }
 
