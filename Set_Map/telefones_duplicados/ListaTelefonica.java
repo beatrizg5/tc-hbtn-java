@@ -1,38 +1,41 @@
-import java.util.HashMap;
-import java.util.TreeSet;
-
+import java.util.*;
 public class ListaTelefonica {
-    HashMap<String, TreeSet<Telefone>> telefones;
 
+    private HashMap<String, HashSet<Telefone>> listaTel;
     public ListaTelefonica() {
-        telefones = new HashMap<>();
+        this.listaTel = new HashMap<>();
     }
+    public HashSet<Telefone>  buscar(String nome){
 
-    public void adicionarTelefone(String nome, Telefone novoTelefone) {
-        TreeSet<Telefone> lista = telefones.get(nome);
-
-        if (lista == null) {
-            lista = new TreeSet<Telefone>();
-        } else {
-            if (lista.contains(novoTelefone)) {
-                throw new IllegalArgumentException("Telefone jah existente para essa pessoa");
-            }
-            for (String chaveNomePessoa : telefones.keySet()) {
-                if (nome == chaveNomePessoa)
-                    continue;
-                if (telefones.get(chaveNomePessoa).contains(novoTelefone)) {
-                    throw new IllegalArgumentException("Telefone jah pertence a outra pessoa");
-
-                }
-
+        for (String listaTel : this.listaTel.keySet() ) {
+            if(listaTel.equals(nome)){
+                return this.listaTel.get(listaTel);
             }
         }
-        lista.add(novoTelefone);
+        return null;
+    }
+    public HashSet<Telefone> adicionarTelefone(String nome, Telefone telefone){
 
-        telefones.put(nome, lista);
+        HashSet<Telefone> numero;
+        numero = listaTel.get(nome);
+        if(numero==null){
+            numero = new HashSet<Telefone>();
+        }
+        if(numero.contains(telefone)){
+            throw new IllegalArgumentException("Telefone jah existente para essa pessoa");
+        }
+        Iterator<HashSet<Telefone>> telefones = listaTel.values().iterator();
+        while (telefones.hasNext()){
+            for(Telefone tel : telefones.next()){
+                if(tel.equals(telefone)){
+                    throw new IllegalArgumentException("Telefone jah pertence a outra pessoa");
+                }
+            }
+        }
+        numero.add(telefone);
+        this.listaTel.put(nome,numero);
+        return numero;
     }
 
-    public TreeSet<Telefone> buscar(String nome) {
-        return telefones.get(nome);
-    }
-}
+} 
+

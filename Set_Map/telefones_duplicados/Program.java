@@ -1,5 +1,7 @@
-import java.util.*;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeMap;
 public class Program {
     public static void main(String[] args) {
         Telefone telefone1 = new Telefone("11", "9888-5551");
