@@ -3,7 +3,7 @@ import java.util.Set;
 import java.util.*;
 
 public class Blog {
-    List<Post> listaDePosts;
+    ArrayList<Post> listaDePosts;
 
    
     public Blog() {
