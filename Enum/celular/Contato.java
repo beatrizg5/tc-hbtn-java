@@ -1,23 +1,38 @@
+import java.util.Objects;
+
 public class Contato {
     private String nome;
-    private String numero;
-    private TipoNumero tipoNumero;
+    private String numeroDeTelefone;
+    private TipoNumero tipo;
 
-    public Contato(String nome, String numero, TipoNumero tipoNumero) {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contato contato = (Contato) o;
+        return nome.equals(contato.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome);
+    }
+
+    public Contato(String nome, String numeroDeTelefone, TipoNumero tipo) {
         this.nome = nome;
-        this.numero = numero;
-        this.tipoNumero = tipoNumero;
+        this.numeroDeTelefone = numeroDeTelefone;
+        this.tipo = tipo;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public String getNumero() {
-        return numero;
+    public String getNumeroDeTelefone() {
+        return numeroDeTelefone;
     }
 
-    public TipoNumero getTipoNumero() {
-        return tipoNumero;
+    public TipoNumero getTipo() {
+        return tipo;
     }
 }
