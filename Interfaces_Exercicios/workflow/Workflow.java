@@ -1,19 +1,20 @@
-import atividades.CarregarVideo;
-import atividades.CodificarVideo;
-import atividades.EnviarEmail;
-import atividades.ModificarStatusVideo;
+import atividades.Atividade;
+import java.util.ArrayList;
 
 public class Workflow {
-    public void registrarAtividade(EnviarEmail carregarVideo){
-        
+    private ArrayList<Atividade> atividades;
+
+    public Workflow(){
+
+        atividades = new ArrayList<>();
     }
 
-    public void registrarAtividade(CarregarVideo carregarVideo) {
+    public  ArrayList<Atividade> getAtividades() {
+        return atividades;
     }
 
-    public void registrarAtividade(CodificarVideo codificarVideo) {
-    }
+    public void registrarAtividade(Atividade atividade) {
+        atividades.add(atividade);
 
-    public void registrarAtividade(ModificarStatusVideo modificarStatusVideo) {
     }
 }

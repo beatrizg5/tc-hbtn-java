@@ -1,7 +1,5 @@
 package atividades;
 
-public class Atividade {
-    public void executar(){
-
-    }
+public interface Atividade {
+    public void executar();
 }
