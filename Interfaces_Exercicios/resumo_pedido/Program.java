@@ -12,7 +12,7 @@ public class Program {
         ProcessadorPedido processadorPedidoSedex = new ProcessadorPedido(new Sedex());
         processadorPedidoSedex.processar(pedido1);
 
-        System.out.printf("%s - %.2f\n", pedido1.getFrete().getTipoProvedorFrete(), pedido1.getFrete().getValor());
+        System.out.printf(locale,"%s - %.2f\n", pedido1.getFrete().getTipoProvedorFrete(), pedido1.getFrete().getValor());
 
         ProcessadorPedido processadorPedidoJadLog = new ProcessadorPedido(new JadLog());
         processadorPedidoJadLog.processar(pedido1);
