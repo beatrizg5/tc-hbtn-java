@@ -5,6 +5,10 @@ public class Pedido {
     public List<Produto> produtos;
     public Cliente cliente;
 
+    @Override
+    public String toString() {
+        return String.format("[%d] %s",codigo, cliente.nome);
+    }
 
     public Pedido(int codigo, List<Produto> produtos, Cliente cliente) {
         this.codigo = codigo;
