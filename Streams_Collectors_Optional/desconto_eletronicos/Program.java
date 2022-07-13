@@ -26,14 +26,18 @@ public class Program {
 
         Pedido pedido1 = new Pedido(1, List.of(produto4, produto3, produto6), cliente1);
         Pedido pedido2 = new Pedido(2, List.of(produto1, produto6, produto2), cliente2);
-        Pedido pedido3 = new Pedido(3, List.of(produto4, produto6, produto2, produto5), cliente3);
+        Pedido pedido3 = new Pedido(3, List.of(produto4, produto6, produto5), cliente3);
+        Pedido pedido4 = new Pedido(4, List.of(produto6, produto1, produto5), cliente3);
 
-        List<Produto> produtosLivro1 = Consulta.obterLivrosDoPedido(pedido1);
-        List<Produto> produtosLivro2 = Consulta.obterLivrosDoPedido(pedido2);
-        List<Produto> produtosLivro3 = Consulta.obterLivrosDoPedido(pedido3);
+        List<Produto> produtosPedido1 = Consulta.aplicar15PorcentoDescontoEletronicos(pedido1.getProdutos());
+        List<Produto> produtosPedido2 = Consulta.aplicar15PorcentoDescontoEletronicos(pedido2.getProdutos());
+        List<Produto> produtosPedido3 = Consulta.aplicar15PorcentoDescontoEletronicos(pedido3.getProdutos());
+        List<Produto> produtosPedido4 = Consulta.aplicar15PorcentoDescontoEletronicos(pedido4.getProdutos());
 
-        System.out.println(produtosLivro1);
-        System.out.println(produtosLivro2);
-        System.out.println(produtosLivro3);
+        System.out.println(produtosPedido1);
+        System.out.println(produtosPedido2);
+        System.out.println(produtosPedido3);
+        System.out.println(produtosPedido4);
     }
 }
+
