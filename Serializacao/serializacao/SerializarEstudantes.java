@@ -19,7 +19,7 @@ public class SerializarEstudantes<Estudante> {
             ObjectOutputStream oos = new ObjectOutputStream(fout);
             oos.writeObject(estudantes);
         } catch (Exception e) {
-            throw new IllegalArgumentException("Nao foi possivel serializar");
+            System.out.println("Nao foi possivel serializar");
         }
     }
 
@@ -32,7 +32,7 @@ public class SerializarEstudantes<Estudante> {
             estudantes = (List<Estudante>) ois.readObject();
             ois.close();
         } catch (Exception e) {
-            throw new IllegalArgumentException("Nao foi possivel desserializar");
+            System.out.println("Nao foi possivel desserializar");
         }
         return estudantes;
     }
